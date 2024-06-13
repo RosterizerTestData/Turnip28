@@ -1,6 +1,6 @@
 {
   "name": "Turnip28",
-  "revision": "17.0.0",
+  "revision": "17.0.1",
   "game": "Turnip28",
   "genre": "fantasy",
   "publisher": "Max FitzGerald",
@@ -450,7 +450,7 @@
         "text": "You may place one additional piece of dangerous terrain on the board once all other terrain has been set up. It must be placed 3″ away from ANY other piece of terrain."
       },
       "Ability§Ammunition": {
-        "text": "When this unit makes a shooting attack, it can use one of two types of ammunition: Round Shot or Grape Shot.\n* Round Shot (Weapon’s Range: 60″) The player rolls three shooting attack dice instead of the usual one. Any hits cause 2 wounds to the target unit. These wounds cannot be prevented by a Vulnerability roll.\n* Grape Shot (Weapon’s Range: 12″) Before making the shooting attack, the player rolls 3D6. The total rolled is the number of shooting attacks this unit makes against the target unit. The target can make its Vulnerability rolls normally."
+        "text": "When this unit makes a shooting attack, it can use one of two types of ammunition: Round Shot or Grape Shot. * Round Shot (Weapon’s Range: 60″) The player rolls three shooting attack dice instead of the usual one. Any hits cause 2 wounds to the target unit. These wounds cannot be prevented by a Vulnerability roll. * Grape Shot (Weapon’s Range: 12″) Before making the shooting attack, the player rolls 3D6. The total rolled is the number of shooting attacks this unit makes against the target unit. The target can make its Vulnerability rolls normally."
       },
       "Ability§An Occasional Treat": {
         "text": "When a Grub orders a friendly unit of Followers, they may immediately choose to take a dangerous terrain test. If this test is passed, the Follower unit gains any mutations the Grub has until the start of the next round.\n\nIf the test is failed, the severing of a body part has been too much for the Grub and they are removed as a casualty as normal. The Follower unit still gains the mutations until the start of the next round."
@@ -556,7 +556,7 @@
         "text": "At the start of every round, including the first, after deployment and preliminary bombardment, you may place one ONE Gardener on ONE piece of dangerous terrain."
       },
       "Ability§Gluttony": {
-        "text": "Every time a Follower unit you control makes a shooting attack, before any dice have been rolled, you may remove one model from the unit to add 4 additional shooting attacks.\n* You may do this any number of times.\n* You may never remove the last model from a unit."
+        "text": "Every time a Follower unit you control makes a shooting attack, before any dice have been rolled, you may remove one model from the unit to add 4 additional shooting attacks. * You may do this any number of times. * You may never remove the last model from a unit."
       },
       "Ability§Grasping Horror": {
         "text": "If a tendril is placed within 3″ of a Follower unit, that unit must immediately take a dangerous terrain test."
@@ -618,7 +618,7 @@
         "text": "Snail Knights are always considered to be wholly within defensible terrain."
       },
       "Ability§Harry’s Method": {
-        "text": "Each time a unit you control successfully completes one of these actions, they may immediately remove 3 panic tokens.\n* Stik ‘em, you animals! Charge an enemy unit with a powder smoke token.\n* NOW, you idiots! Volly and enter a shooting engagement with an enemy unit with a powder smoke token.\n* Kill ‘em in the mud! Force an enemy unit to take a dangerous terrain test when it retreats.\n* It’s just bloody sitting there! Capture an objective."
+        "text": "Each time a unit you control successfully completes one of these actions, they may immediately remove 3 panic tokens. * Stik ‘em, you animals! Charge an enemy unit with a powder smoke token. * NOW, you idiots! Volly and enter a shooting engagement with an enemy unit with a powder smoke token. * Kill ‘em in the mud! Force an enemy unit to take a dangerous terrain test when it retreats. * It’s just bloody sitting there! Capture an objective."
       },
       "Ability§Heady Romance": {
         "text": "Once per round, after they have completed an order, the Leech Lovers may suffer 4 wounds to order a Follower unit you control a second time, even if it had been ordered before."
@@ -633,7 +633,7 @@
         "text": "When deploying your regiment at the start of the game, when it is your turn to deploy your Toff and their two Follower units, deploy your Followers as usual, but place your Toff to one side, off the table."
       },
       "Ability§Lifeblood": {
-        "text": "Every time a unit you control completes a melee bout, it heals an number wounds equal to the number of wounds the enemy unit suffered.\n\n* Only unsaved wounds count towards this number.\n* You may return dead models this way, but you may never exceed the starting number of models in a unit.\n* A dead model may only be returned if all of its wounds could be healed in a single bout.\n* A unit that is completely destroyed in a bout cannot heal back any wounds.\n* If an enemy unit is destroyed, still count excess wounds as wounds suffered."
+        "text": "Every time a unit you control completes a melee bout, it heals an number wounds equal to the number of wounds the enemy unit suffered.\n\n* Only unsaved wounds count towards this number. * You may return dead models this way, but you may never exceed the starting number of models in a unit. * A dead model may only be returned if all of its wounds could be healed in a single bout. * A unit that is completely destroyed in a bout cannot heal back any wounds. * If an enemy unit is destroyed, still count excess wounds as wounds suffered."
       },
       "Ability§Lovers at Court": {
         "rules": {
@@ -738,7 +738,7 @@
         "text": "Toadies belonging to Tod’s Folly are considered to be his **Minders**. Minders often carry with them a large sack and some rope to restrain Tod if he becomes too boisterous. So long as you have a Minder on the board, whenever you order a unit, you may choose to deactivate **Misplaced Confidence** until the order is complete. You must do this before declaring what the order will be and before rolling for any blunders."
       },
       "Ability§Misplaced Confidence": {
-        "text": "Whenever winners and losers are declared at the end of melee bouts and shooting engagements, WINNERS and LOSERS are swapped.\n* If your unit was declared the WINNER, they are now the LOSER. The opponent is now the WINNER.\n*  If your unit was declared the LOSER, they are now the WINNER. The opponent is now the LOSER.\n* If neither your unit nor the opponent’s unit was declared the WINNER, then there is no change, and the melee bout or shooting engagement proceeds like normal.\n\n**No Funny Business:** This does not endlessly repeat on itself, nor does it take effect if one unit is completely destroyed."
+        "text": "Whenever winners and losers are declared at the end of melee bouts and shooting engagements, WINNERS and LOSERS are swapped. * If your unit was declared the WINNER, they are now the LOSER. The opponent is now the WINNER. *  If your unit was declared the LOSER, they are now the WINNER. The opponent is now the LOSER. * If neither your unit nor the opponent’s unit was declared the WINNER, then there is no change, and the melee bout or shooting engagement proceeds like normal.\n\n**No Funny Business:** This does not endlessly repeat on itself, nor does it take effect if one unit is completely destroyed."
       },
       "Ability§Monstrous Bombardment": {
         "text": "The player rolls 1 shooting attack dice. If this attack hits, it causes 6 wounds to the target unit. These cannot be prevented by a Vulnerability roll."
@@ -786,7 +786,7 @@
         "text": "After players have deployed, but before any Cult abilities have been used, players may choose to fire a preliminary bombardment. Starting with the player with the Initiative, players take turns making a free shooting attack with this unit. Preliminary bombardments can generate panic tokens, but do not cause a unit to Retreat. The target unit must still be in range and line of sight. You do not need to roll for blundering during a Preliminary Bombardment."
       },
       "Ability§Prizewinners": {
-        "text": "Anytime you could order a unit, you may spend your Tuft tokens to empower your Regiment. You may stack these powers as many times as you can afford to so.\n\nEach power requires a number of Tuft tokens as its cost. To pay its cost, remove a number of tokens equal to its cost from any of your Plots in any combination.\n* 1 Tuft Token: Give target unit (except a Stump Gun) 2 additional shooting or melee attacks until the end of its order.\n* 2 Tuft Tokens: Decrease the Inaccuracy (I) of target unit by 1 until the end of its order.\n* 6 Tuft Tokens: You may give a single friendly unit an additional order, even if it has already been ordered this round. They are considered to have been ordered by a Snob."
+        "text": "Anytime you could order a unit, you may spend your Tuft tokens to empower your Regiment. You may stack these powers as many times as you can afford to so.\n\nEach power requires a number of Tuft tokens as its cost. To pay its cost, remove a number of tokens equal to its cost from any of your Plots in any combination. * 1 Tuft Token: Give target unit (except a Stump Gun) 2 additional shooting or melee attacks until the end of its order. * 2 Tuft Tokens: Decrease the Inaccuracy (I) of target unit by 1 until the end of its order. * 6 Tuft Tokens: You may give a single friendly unit an additional order, even if it has already been ordered this round. They are considered to have been ordered by a Snob."
       },
       "Ability§Ricochet": {
         "text": "You MUST choose another unit that is closest to the target; give that unit 2 panic tokens."
@@ -923,7 +923,7 @@
         "text": "Tod makes 3x the number of melee attacks when involved in a Toff Off!."
       },
       "Ability§Toff Off!": {
-        "text": "When a Toff you control is **Made Ready** within 18″ and line of sight of an enemy Toff, you may propose a Toff Off!\n\nA Toff Off! is a relatively honourable duel to the death, where only one Toff will be left standing. When a player is challenged to a Toff Off!, they MUST accept.\n\n* **Sabres For Tea:** To fight a Toff Off!, both Toffs make simultaneous melee attacks against each other until one Toff has perished. When one or both Toffs expire, the Toff Off! ends.  \n* If your Toff is still alive, proceed with your Toff’s Orders.  \n* If not, your Order ends.\n* **Nice Spot for a Picnic:** Players are encouraged to pick a suitably grandiose spot on the battlefield to host their toff off! Mark the Toff’s original positions and place them in the area ready for their duel. Once one or both Toffs have gone to nibble that great turnip in the sky (died), return the victor to their original position and proceed with their orders."
+        "text": "When a Toff you control is **Made Ready** within 18″ and line of sight of an enemy Toff, you may propose a Toff Off!\n\nA Toff Off! is a relatively honourable duel to the death, where only one Toff will be left standing. When a player is challenged to a Toff Off!, they MUST accept.\n\n* **Sabres For Tea:** To fight a Toff Off!, both Toffs make simultaneous melee attacks against each other until one Toff has perished. When one or both Toffs expire, the Toff Off! ends.   * If your Toff is still alive, proceed with your Toff’s Orders.   * If not, your Order ends. * **Nice Spot for a Picnic:** Players are encouraged to pick a suitably grandiose spot on the battlefield to host their toff off! Mark the Toff’s original positions and place them in the area ready for their duel. Once one or both Toffs have gone to nibble that great turnip in the sky (died), return the victor to their original position and proceed with their orders."
       },
       "Ability§Ululating Shrine": {
         "text": "Every time this unit is Made Ready (see page 10), it may take up to 2 panic tokens from a friendly unit anywhere on the table and give them to another friendly or enemy unit within 18″.\n\nThese units do not need to be within line of sight."
@@ -938,7 +938,7 @@
         "text": "No unit may deploy or end its move within 1″ of The Swelling."
       },
       "Ability§Unstable Icon": {
-        "text": "Like all artillery the Regiments use, this unit is prone to failing catastrophically.\n* When rolling to hit as part of a shooting attack, this unit receives one panic token for each unmodified 1 rolled. Any 1s rolled when generating Grape Shot’s 3D6 attacks do not generate panic tokens, only the rolls to hit. Shooting attacks should be rolled all at once, not one at a time.\n* If this unit has 3 or more panic tokens before it makes a shooting attack, it is dangerously unstable. If any further natural 1s are rolled when rolling to hit, something has gone horribly wrong. Immediately remove the unit from the table as it detonates, obliterating the crew completely. The unit resolves its shooting attacks as normal, even if it explodes. Its crew, the barrel, and surrounding plant matter cease to exist, but their shot still speeds towards their opponent.\n* An unstable unit must have at least 3 panic tokens when it rolls its shooting attacks to have any risk of exploding."
+        "text": "Like all artillery the Regiments use, this unit is prone to failing catastrophically. * When rolling to hit as part of a shooting attack, this unit receives one panic token for each unmodified 1 rolled. Any 1s rolled when generating Grape Shot’s 3D6 attacks do not generate panic tokens, only the rolls to hit. Shooting attacks should be rolled all at once, not one at a time. * If this unit has 3 or more panic tokens before it makes a shooting attack, it is dangerously unstable. If any further natural 1s are rolled when rolling to hit, something has gone horribly wrong. Immediately remove the unit from the table as it detonates, obliterating the crew completely. The unit resolves its shooting attacks as normal, even if it explodes. Its crew, the barrel, and surrounding plant matter cease to exist, but their shot still speeds towards their opponent. * An unstable unit must have at least 3 panic tokens when it rolls its shooting attacks to have any risk of exploding."
       },
       "Ability§Uproot": {
         "text": "When this unit is killed, at the start of the next round, place the unit within a piece of dangerous terrain, not within 1″ of any other unit."
