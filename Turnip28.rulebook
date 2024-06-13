@@ -1,0 +1,3536 @@
+{
+  "name": "Turnip28",
+  "revision": "17.0.0",
+  "game": "Turnip28",
+  "genre": "fantasy",
+  "publisher": "Max FitzGerald",
+  "url": "https://www.patreon.com/turnip28",
+  "notes": "",
+  "wip": false,
+  "rulebook": {
+    "assetTaxonomy": {
+      "Ability": {
+        "aspects": {
+          "Visibility": "always"
+        }
+      },
+      "Cult": {},
+      "Equipment": {},
+      "Follower": {
+        "aspects": {
+          "Group Traits": true,
+          "Lock Qty": true
+        },
+        "keywords": {
+          "Cult": [],
+          "Keywords": []
+        },
+        "meta": {
+          "ttsDamageStat": "W",
+          "ttsStatDisplay": "M,A,I,W,V,R",
+          "ttsCoherency": "1"
+        },
+        "rules": {
+          "hideStats?": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    [
+                      "A",
+                      "C",
+                      "I",
+                      "M",
+                      "R",
+                      "V",
+                      "W"
+                    ],
+                    "visibility"
+                  ]
+                ],
+                "value": "hidden"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "tally",
+                    "Model"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "Select this Follower’s Equipment.": {
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Equipment",
+                    "value"
+                  ]
+                ],
+                "value": "-"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          },
+          "Too many of this type of Follower.": {
+            "evals": [
+              {
+                "actionable": false,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "designation"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "MaxQty",
+                    "value"
+                  ]
+                ]
+              },
+              {
+                "actionable": true,
+                "max": [
+                  "{self}",
+                  "stats",
+                  "MaxQty",
+                  "value"
+                ],
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "tally",
+                    "{0string}"
+                  ]
+                ]
+              }
+            ]
+          }
+        },
+        "stats": {
+          "A": {
+            "group": "Stats",
+            "statOrder": 2,
+            "statType": "numeric",
+            "value": null,
+            "visibility": "normal"
+          },
+          "Base": {
+            "format": "{v}mm",
+            "statType": "term",
+            "value": null,
+            "visibility": "normal"
+          },
+          "Equipment": {
+            "dynamic": true,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Black Powder": {
+                "order": 1,
+                "traits": [
+                  {
+                    "trait": "Equipment§Black Powder"
+                  }
+                ]
+              },
+              "Missile Weapons": {
+                "order": 2,
+                "traits": [
+                  {
+                    "trait": "Equipment§Missile Weapons"
+                  }
+                ]
+              },
+              "Close Combat": {
+                "order": 3,
+                "traits": [
+                  {
+                    "trait": "Equipment§Close Combat"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
+          },
+          "I": {
+            "format": "{v}+",
+            "group": "Stats",
+            "statOrder": 3,
+            "statType": "numeric",
+            "value": null,
+            "visibility": "normal"
+          },
+          "M": {
+            "format": "{v}″",
+            "group": "Stats",
+            "statOrder": 1,
+            "statType": "numeric",
+            "value": null,
+            "visibility": "normal"
+          },
+          "maxQty": {
+            "statType": "numeric",
+            "value": null,
+            "visibility": "hidden"
+          },
+          "R": {
+            "format": "{v}″",
+            "group": "Stats",
+            "statOrder": 6,
+            "statType": "numeric",
+            "value": null,
+            "visibility": "normal"
+          },
+          "V": {
+            "format": "{v}+",
+            "group": "Stats",
+            "statOrder": 5,
+            "statType": "numeric",
+            "value": null,
+            "visibility": "normal"
+          },
+          "W": {
+            "group": "Stats",
+            "statOrder": 4,
+            "statType": "numeric",
+            "value": null,
+            "visibility": "normal"
+          }
+        }
+      },
+      "Model": {
+        "aspects": {
+          "Type": "game piece"
+        },
+        "meta": {
+          "ttsDamageStat": "W",
+          "ttsStatDisplay": "M,A,I,W,V,R",
+          "ttsDisplayGroupAssets": "1"
+        },
+        "stats": {
+          "A": {
+            "group": "Stats",
+            "statOrder": 2,
+            "statType": "numeric",
+            "value": null,
+            "visibility": "normal"
+          },
+          "Base": {
+            "format": "{v}mm",
+            "statType": "term",
+            "value": null,
+            "visibility": "normal"
+          },
+          "I": {
+            "format": "{v}+",
+            "group": "Stats",
+            "statOrder": 3,
+            "statType": "numeric",
+            "value": null,
+            "visibility": "normal"
+          },
+          "M": {
+            "format": "{v}″",
+            "group": "Stats",
+            "statOrder": 1,
+            "statType": "numeric",
+            "value": null,
+            "visibility": "normal"
+          },
+          "R": {
+            "format": "{v}″",
+            "group": "Stats",
+            "statOrder": 6,
+            "statType": "numeric",
+            "value": null,
+            "visibility": "normal"
+          },
+          "V": {
+            "format": "{v}+",
+            "group": "Stats",
+            "statOrder": 5,
+            "statType": "numeric",
+            "value": null,
+            "visibility": "normal"
+          },
+          "W": {
+            "group": "Stats",
+            "statOrder": 4,
+            "statType": "numeric",
+            "value": null,
+            "visibility": "normal"
+          }
+        }
+      },
+      "Mutation": {
+        "aspects": {
+          "Lock Qty": true,
+          "Unique": true
+        },
+        "rules": {
+          "allowSelf": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "item"
+                ]
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        }
+      },
+      "Snob": {
+        "allowed": {
+          "classifications": [
+            "Follower"
+          ]
+        },
+        "aspects": {
+          "Type": "game piece"
+        },
+        "constraints": {
+          "all": [],
+          "any": [
+            "Core"
+          ]
+        },
+        "meta": {
+          "ttsDamageStat": "W",
+          "ttsStatDisplay": "M,A,I,W,V,R,C"
+        },
+        "stats": {
+          "A": {
+            "group": "Stats",
+            "statOrder": 2,
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "normal"
+          },
+          "Base": {
+            "format": "{v}mm",
+            "statType": "term",
+            "value": null,
+            "visibility": "normal"
+          },
+          "C": {
+            "format": "{v}″",
+            "group": "Stats",
+            "statOrder": 7,
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "normal"
+          },
+          "Equipment": {
+            "ranks": {
+              "Pistol & Sabre": {
+                "order": 0,
+                "traits": [
+                  {
+                    "trait": "Equipment§Pistol & Sabre"
+                  }
+                ]
+              }
+            },
+            "statType": "rank",
+            "value": "Pistol & Sabre",
+            "visibility": "normal"
+          },
+          "Follower": {
+            "statType": "numeric",
+            "tracked": true,
+            "value": 0,
+            "visibility": "hidden"
+          },
+          "I": {
+            "format": "{v}+",
+            "group": "Stats",
+            "statOrder": 3,
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "normal"
+          },
+          "M": {
+            "format": "{v}″",
+            "group": "Stats",
+            "statOrder": 1,
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "normal"
+          },
+          "R": {
+            "format": "{v}″",
+            "group": "Stats",
+            "statOrder": 6,
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "normal"
+          },
+          "V": {
+            "format": "{v}+",
+            "group": "Stats",
+            "statOrder": 5,
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "normal"
+          },
+          "W": {
+            "group": "Stats",
+            "statOrder": 4,
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "normal"
+          }
+        }
+      },
+      "Token": {
+        "aspects": {
+          "Type": "game piece"
+        }
+      }
+    },
+    "assetCatalog": {
+      "Ability§Abnormal Growth": {
+        "text": "At the start of a round, The Swelling sprouts THREE tendrils."
+      },
+      "Ability§Absolute Chaos": {
+        "text": "Whenever an enemy unit retreats, at the end of its retreat move, all enemy Follower units within 6″ must retreat directly away from that unit. A unit that retreats because of Absolute Chaos does not cause other units to retreat."
+      },
+      "Ability§Allotment": {
+        "text": "You may place one additional piece of dangerous terrain on the board once all other terrain has been set up. It must be placed 3″ away from ANY other piece of terrain."
+      },
+      "Ability§Ammunition": {
+        "text": "When this unit makes a shooting attack, it can use one of two types of ammunition: Round Shot or Grape Shot.\n* Round Shot (Weapon’s Range: 60″) The player rolls three shooting attack dice instead of the usual one. Any hits cause 2 wounds to the target unit. These wounds cannot be prevented by a Vulnerability roll.\n* Grape Shot (Weapon’s Range: 12″) Before making the shooting attack, the player rolls 3D6. The total rolled is the number of shooting attacks this unit makes against the target unit. The target can make its Vulnerability rolls normally."
+      },
+      "Ability§An Occasional Treat": {
+        "text": "When a Grub orders a friendly unit of Followers, they may immediately choose to take a dangerous terrain test. If this test is passed, the Follower unit gains any mutations the Grub has until the start of the next round.\n\nIf the test is failed, the severing of a body part has been too much for the Grub and they are removed as a casualty as normal. The Follower unit still gains the mutations until the start of the next round."
+      },
+      "Ability§Aristocratic Ammunition": {
+        "text": "Instead of giving an order with a Snob, you may remove that Snob from the board and immediately make a special Volley order with your Grand Bombard. You do not need to roll for blundering when using Aristocratic Ammunition, and this special order does not count towards the one order limit units usually have per round.\n\nShooting using Aristocratic Ammunition does not create a powder smoke token and the Grand Bombard may shoot this way even if it has a powder smoke token.\n\nYou may never remove your last Snob using Aristocratic Ammunition."
+      },
+      "Ability§Backward Observers": {
+        "text": "Snobs in your Regiment may capture objectives."
+      },
+      "Ability§Bowel-Loosening Charge": {
+        "text": "When a unit with this rule charges, their target must re-roll any successful panic tests."
+      },
+      "Ability§Bristling": {
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "classification",
+                    "Snob",
+                    "traits"
+                  ]
+                ],
+                "value": "Equipment§Moustaches"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "In addition to their normal weapons, Snobs belonging to The Slug’s Lament must be equipped with Moustaches. While fetching, Moustaches sadly confer no benefits and are for appearances only."
+      },
+      "Ability§Call the Old Guard": {
+        "text": "At the start of the THIRD round, place your Toff, along with your unit of Old Guard, within 6″ of any table edge, excluding your opponent’s board edge. The Old Guard must be deployed in coherency within command range of your Toff, obeying the 1″ rule."
+      },
+      "Ability§Clergy": {
+        "text": "When a member of the Clergy orders a unit, they may give that unit Fearless (see page 19) until the end of the round. If a member of the Clergy does this, the target unit receives a Panic Token."
+      },
+      "Ability§Confused Animals": {
+        "text": "The Herd may never capture or contest objectives."
+      },
+      "Ability§Dash": {
+        "text": "This unit may make a move up to its Movement Characteristic **(M)** after it has completed an order.\n\nSnobs cannot be moved alongside units by using **Dash**, as it happens AFTER the Snob’s order has been completed."
+      },
+      "Ability§Destroying Plots": {
+        "text": "If an enemy unit finishes their move within a Plot, they smash your vegetables! Remove the Gardner and any Tuft tokens in that Plot. The Plot returns to a piece of dangerous terrain until a new Gardener is placed on it."
+      },
+      "Ability§Dig, you Maggots!": {
+        "text": "At the start of a round, before preliminary bombardment, you may remove up to 3 Follower units from the board to be used later. A unit removed this way is considered Burrowed.\n\nThe unit retains any tokens, wounds, or casualties."
+      },
+      "Ability§Disgustingly Stubborn": {
+        "text": "When retreating, this unit only retreats ONE inch for every panic token instead of the normal 2″."
+      },
+      "Ability§Duck, you Prick!": {
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "classification",
+                    "Snob",
+                    "stats",
+                    "W",
+                    "value"
+                  ]
+                ],
+                "value": 1
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "Harry does not take part in the battle, however his expert training has made your officers flinch at the slightest sound.\n\n**All Snobs in your Regiment have +1 Wound.**"
+      },
+      "Ability§Exposed": {},
+      "Ability§Fearless": {
+        "text": "Every time a unit with fearless is required to retreat, including after a failed panic test, on a 3+ they do not retreat and are treated as if they passed the panic test."
+      },
+      "Ability§Firework Fanatics": {
+        "text": "Anytime you order a unit, you may bolster their spirits by letting off some explosives. Remove 1 model and 2 panic tokens from the unit."
+      },
+      "Ability§Floating Through the Fog": {
+        "text": "When this unit is the target of a shooting attack, increase the (I) if the attacker by 3 for that attack unless that unit has fly."
+      },
+      "Ability§Fly": {
+        "text": "Units with this ability may move across other units and dangerous terrain as if they weren’t there.\n\nUnits with Fly must still obey the 1″ rule at the end of their move."
+      },
+      "Ability§Gardeners": {
+        "text": "At the start of every round, including the first, after deployment and preliminary bombardment, you may place one ONE Gardener on ONE piece of dangerous terrain."
+      },
+      "Ability§Gluttony": {
+        "text": "Every time a Follower unit you control makes a shooting attack, before any dice have been rolled, you may remove one model from the unit to add 4 additional shooting attacks.\n* You may do this any number of times.\n* You may never remove the last model from a unit."
+      },
+      "Ability§Grasping Horror": {
+        "text": "If a tendril is placed within 3″ of a Follower unit, that unit must immediately take a dangerous terrain test."
+      },
+      "Ability§Grenadiers": {
+        "text": "Grogs must be equipped with black powder weapons."
+      },
+      "Ability§Grotesques": {
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "item",
+                    "Snob§Toady",
+                    "stats",
+                    "W",
+                    "value"
+                  ]
+                ],
+                "value": 2
+              },
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "item",
+                    "Snob§Toady",
+                    "stats",
+                    "A",
+                    "value"
+                  ]
+                ],
+                "value": 3
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "All Toadies in your Regiment have 2 Wounds (W) and 3 Attacks (A) each."
+      },
+      "Ability§Growing your Vegetables": {
+        "text": "At the start of every round, excluding the first, before placing Gardeners, double the number of Tuft tokens on every Plot. For example, if a piece of dangerous terrain with a Gardener has two Tuft tokens, it would increase to four Tuft tokens.\n\nIf a Plot has zero Tuft tokens at the start of the round, add one.\n\nA Plot may only ever have a maximum of six Tuft tokens at any time."
+      },
+      "Ability§Hard-Boiled": {
+        "text": "If a unit from this Regiment has not yet moved this round, they count as being wholly within defensible terrain and have -1 Vulnerability."
+      },
+      "Ability§Hardshelled": {
+        "text": "Snail Knights are always considered to be wholly within defensible terrain."
+      },
+      "Ability§Harry’s Method": {
+        "text": "Each time a unit you control successfully completes one of these actions, they may immediately remove 3 panic tokens.\n* Stik ‘em, you animals! Charge an enemy unit with a powder smoke token.\n* NOW, you idiots! Volly and enter a shooting engagement with an enemy unit with a powder smoke token.\n* Kill ‘em in the mud! Force an enemy unit to take a dangerous terrain test when it retreats.\n* It’s just bloody sitting there! Capture an objective."
+      },
+      "Ability§Heady Romance": {
+        "text": "Once per round, after they have completed an order, the Leech Lovers may suffer 4 wounds to order a Follower unit you control a second time, even if it had been ordered before."
+      },
+      "Ability§Hogs in Mud": {
+        "text": "Units in your Regiment do not receive a panic token if they fail a dangerous terrain test."
+      },
+      "Ability§It’s Everywhere!": {
+        "text": "Friendly or Enemy units fail dangerous terrain tests on a result of a 1 and 2, instead of just 1."
+      },
+      "Ability§Late as Usual": {
+        "text": "When deploying your regiment at the start of the game, when it is your turn to deploy your Toff and their two Follower units, deploy your Followers as usual, but place your Toff to one side, off the table."
+      },
+      "Ability§Lifeblood": {
+        "text": "Every time a unit you control completes a melee bout, it heals an number wounds equal to the number of wounds the enemy unit suffered.\n\n* Only unsaved wounds count towards this number.\n* You may return dead models this way, but you may never exceed the starting number of models in a unit.\n* A dead model may only be returned if all of its wounds could be healed in a single bout.\n* A unit that is completely destroyed in a bout cannot heal back any wounds.\n* If an enemy unit is destroyed, still count excess wounds as wounds suffered."
+      },
+      "Ability§Lovers at Court": {
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": [
+                  "{self}",
+                  "stats",
+                  "Extra Toadies",
+                  "value"
+                ],
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Snob§Toady",
+                  "stats": {
+                    "Follower": {
+                      "max": 0,
+                      "min": 0
+                    }
+                  }
+                }
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 99
+          },
+          "maxToadies": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Extra Toadies",
+                    "max"
+                  ]
+                ],
+                "value": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T-O",
+                  "value": 1
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "stats",
+                    "Snobs",
+                    "value"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 10
+          }
+        },
+        "stats": {
+          "Extra Toadies": {
+            "dynamic": true,
+            "increment": {
+              "value": 1
+            },
+            "statType": "numeric",
+            "value": 0,
+            "visibility": "normal"
+          }
+        },
+        "text": "When building your Regiment, you may take twice as many Toadies as usual. These extra Toadies do not come with extra followers."
+      },
+      "Ability§Lovers Kiss": {
+        "text": "Every time an enemy unit suffers a wound, The Leech Lovers heal a wound. They may never exceed their starting wounds."
+      },
+      "Ability§Marsh Born": {
+        "text": "This unit always passes dangerous terrain tests."
+      },
+      "Ability§Minders": {
+        "text": "Toadies belonging to Tod’s Folly are considered to be his **Minders**. Minders often carry with them a large sack and some rope to restrain Tod if he becomes too boisterous. So long as you have a Minder on the board, whenever you order a unit, you may choose to deactivate **Misplaced Confidence** until the order is complete. You must do this before declaring what the order will be and before rolling for any blunders."
+      },
+      "Ability§Misplaced Confidence": {
+        "text": "Whenever winners and losers are declared at the end of melee bouts and shooting engagements, WINNERS and LOSERS are swapped.\n* If your unit was declared the WINNER, they are now the LOSER. The opponent is now the WINNER.\n*  If your unit was declared the LOSER, they are now the WINNER. The opponent is now the LOSER.\n* If neither your unit nor the opponent’s unit was declared the WINNER, then there is no change, and the melee bout or shooting engagement proceeds like normal.\n\n**No Funny Business:** This does not endlessly repeat on itself, nor does it take effect if one unit is completely destroyed."
+      },
+      "Ability§Monstrous Bombardment": {
+        "text": "The player rolls 1 shooting attack dice. If this attack hits, it causes 6 wounds to the target unit. These cannot be prevented by a Vulnerability roll."
+      },
+      "Ability§Mucous Maneuver": {
+        "text": "Once per game, at the start of a round, you can announce your Regiment is performing the Mucous Manoeuvre. All Snail Knights and all Cavalry Followers count as having a movement of 18″ for that round only."
+      },
+      "Ability§Mutated": {
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "allowed",
+                    "classifications"
+                  ]
+                ],
+                "value": "Mutation"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "Each Grub gains a free mutation. If playing a standalone game that is not part of a campaign, each Grub must take a different mutation."
+      },
+      "Ability§Offal Gorgers": {
+        "text": "If Scuttlers fight in a melee, they can never be declared the winners. Both units must continue to fight bouts until the Scuttlers are the losers or one side is destroyed."
+      },
+      "Ability§Pandemonium Rockets": {
+        "text": "The player rolls 5 shooting attack dice instead of the usual one. Any hits cause 1 wound to the target unit. These wounds cannot be prevented by a Vulnerability roll. The target unit gains a panic token for EACH successful hit instead of just one."
+      },
+      "Ability§Plots": {
+        "text": "Placing a Gardener marks the dangerous terrain out as a Plot suitable to grow vegetables and, so long as the Gardener remains on the terrain piece, it will sprout Tuft tokens.\n\nA Plot may only ever have one Gardener.\n\nEvery time you place a Gardener, you may place two Tuft tokens on their Plot."
+      },
+      "Ability§Pocket Rockets": {
+        "text": "Whenever the last model in a unit from your Regiment is removed for any reason, their collection of smuggled pyrotechnics detonate. Before removing the last model, choose another unit closest to that model and give it 2 panic tokens."
+      },
+      "Ability§Preliminary Bombardment": {
+        "text": "After players have deployed, but before any Cult abilities have been used, players may choose to fire a preliminary bombardment. Starting with the player with the Initiative, players take turns making a free shooting attack with this unit. Preliminary bombardments can generate panic tokens, but do not cause a unit to Retreat. The target unit must still be in range and line of sight. You do not need to roll for blundering during a Preliminary Bombardment."
+      },
+      "Ability§Prizewinners": {
+        "text": "Anytime you could order a unit, you may spend your Tuft tokens to empower your Regiment. You may stack these powers as many times as you can afford to so.\n\nEach power requires a number of Tuft tokens as its cost. To pay its cost, remove a number of tokens equal to its cost from any of your Plots in any combination.\n* 1 Tuft Token: Give target unit (except a Stump Gun) 2 additional shooting or melee attacks until the end of its order.\n* 2 Tuft Tokens: Decrease the Inaccuracy (I) of target unit by 1 until the end of its order.\n* 6 Tuft Tokens: You may give a single friendly unit an additional order, even if it has already been ordered this round. They are considered to have been ordered by a Snob."
+      },
+      "Ability§Ricochet": {
+        "text": "You MUST choose another unit that is closest to the target; give that unit 2 panic tokens."
+      },
+      "Ability§Rise from the Silt": {
+        "text": "From the start of round 2 onwards, whenever its your turn to order a unit. You may place a single Burrowed unit within a piece of dangerous terrain. Only one unit may be placed at a time, and must be placed in coherency and 1″ away from all other units.\n\nWhen the burrowed unit is placed, it MUST immediately charge the closest enemy unit. If there is no enemy unit within charge range, the unit must still attempt to charge the closest unit, even if they could not reach them.\n\nThis does not count as a Snob’s or Follower’s order for that round.\n\n**Burrowed units may NEVER capture objectives the round they are placed on the table even after moving.**"
+      },
+      "Ability§Rootlings": {
+        "text": "You must take at least one unit of Rootlings as Followers when building your Regiment. Your Regiment may contain any number of Rootlings."
+      },
+      "Ability§Safety in Numbers": {
+        "text": "If the unit contains 8 or more models, it is Fearless."
+      },
+      "Ability§Scare the Swine": {
+        "text": "Instead of ordering a unit, a Snob from this Regiment may Frighten a Herd within its command range. When frightened, the target Herd must retreat directly away from the Snob, remembering to add 2 inches for each panic token."
+      },
+      "Ability§Shadow of the Balloon": {
+        "text": "Any friendly or enemy units may move across the balloon as if it wasn’t there, but they must finish their move at least 1″ away from the balloon’s base.\n\nIf an enemy unit moves across the balloon, or the balloon moves across an enemy unit, that enemy unit must take a dangerous terrain test."
+      },
+      "Ability§Sharpshooters": {
+        "text": "When shooting or charging, this unit can target any enemy unit, not just the closest."
+      },
+      "Ability§Silt Born": {
+        "text": "Units of Scuttlers never take dangerous terrain tests when moving across dangerous terrain."
+      },
+      "Ability§Skirmish": {
+        "text": "When this unit is the target of a shooting attack, increase the Inaccuracy of the shooter by 2 for that attack."
+      },
+      "Ability§Slow and Steady": {
+        "text": "When playing a game against Knights of the Shellwood, the game lasts an extra round. For example, when playing the Long March, the game will last 5 rounds instead of 4."
+      },
+      "Ability§Snail's Pace": {
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "classification",
+                    "Snob",
+                    "stats",
+                    "M",
+                    "value"
+                  ],
+                  [
+                    "{roster}",
+                    "assets",
+                    "classification",
+                    "Snob",
+                    "assets",
+                    "classification",
+                    "Follower",
+                    "stats",
+                    "M",
+                    "value"
+                  ],
+                  [
+                    "{roster}",
+                    "assets",
+                    "classification",
+                    "Snob",
+                    "assets",
+                    "classification",
+                    "Follower",
+                    "assets",
+                    "classification",
+                    "Model",
+                    "stats",
+                    "M",
+                    "value"
+                  ]
+                ],
+                "value": null
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 99
+          }
+        },
+        "text": "Every unit in this Regiment counts as having a movement of 0″."
+      },
+      "Ability§Snarky Tourists": {
+        "text": "So long as the Aunts’ Observation Balloon is on the table, you may pick the direction in which a friendly or enemy unit’s pleb retreats. You may never make a unit retreat through the unit that caused them to retreat."
+      },
+      "Ability§Son of Tod": {
+        "text": "If there are two or more Tods on the field, then players should roll off to decide which player has Tod and which player(s) have Son of Tod. Tod’s sons are, unfortunately, exactly like their father."
+      },
+      "Ability§Spotters": {
+        "text": "For every Objective you control, reduce the Inaccuracy (I) of your Grand Bombard and Stump Guns by 1. This cannot be used for Preliminary Bombardment."
+      },
+      "Ability§Stampede": {
+        "text": "If the Herd has 10 or more models when it makes a successful charge (when a unit has managed to get into base-to-base with its target), the Herd and its target must both take a dangerous terrain test.\n\nThis test is done before any attack dice are rolled, so the Herd may grow before it makes its attacks."
+      },
+      "Ability§Stride": {
+        "text": "Units with this ability may move across enemy and friendly units as if they weren’t there.\n\nUnits with Stride must still obey the 1″ rule at the end of their move."
+      },
+      "Ability§Stubborn Fanatics": {
+        "text": "This unit cannot be moved. It cannot Charge, March, or Move and Shoot, and will never retreat under any circumstance."
+      },
+      "Ability§Swarm ’Em!": {
+        "text": "The Rabble have an Attack Characteristic (A) equal to 2 + the number of friendly Rabble units on the board, including itself."
+      },
+      "Ability§Tendrils": {
+        "text": "Place a tendril, one at a time, with the narrow end in base-to-base contact with either the Swelling or another tendril, and at least 1″ away from all units, other terrain and objective markers. If this is impossible, the tendril is not placed."
+      },
+      "Ability§The Herd Grows": {
+        "text": "Every time this unit takes a dangerous terrain test, for every successful roll, you may immediately add an additional Herd model to the unit.\n\nThe additional Herd model must be placed in coherency and not within 1″ of any other unit. If a model cannot be placed this way, it is not placed. Placing models this way cannot trigger any dangerous terrain tests.\n\nThe Herd can only ever have a maximum of 12 models at any time.\n\nModels are added before failed terrain test models are removed. This way, to remove the Herd, the entire unit must fail all its dangerous terrain tests at once."
+      },
+      "Ability§The Old Guard": {
+        "text": "The Old Guard are treated exactly like a unit of Grogs, however when it is your turn to deploy your Toff and their Followers at the start of the game, place your unit of Old Guard to one side, off the table."
+      },
+      "Ability§The Swollen One": {
+        "text": "Once per game, instead of ordering a unit, you may hurl The Swelling. Select a single Follower model anywhere on the board with no more than 2 Wounds (W) on their unit profile.\n\nRemove the target model and put The Swelling in its place. If there are any models in the way, their controller must move them up to 6″ so that they are at least 1″ away from The Swelling, maintaining coherency and obeying the 1″ rule. If they cannot meet these conditions, then they are removed as well."
+      },
+      "Ability§The Tall Man Protects": {
+        "text": "Friendly and Enemy units can never scenario blunder, units roll to blunder normally instead."
+      },
+      "Ability§The Tall Man's Gaze": {
+        "text": "Place a distinctive D6 next to the Tall Man. The score on this dice represents the strength of the Tall Man’s Gaze. The strength of the Tall Man’s Gaze is equal to the number of Rabble units on the board. The Tall man’s Gaze can never be less than 1 or more than 6."
+      },
+      "Ability§Thoughts of Rebellion": {
+        "text": "Whenever an enemy unit rolls to see if they blunder, for each roll of a 1, you may add a single Rabble unit to the board under your control.\n\nThe Rabble must be placed within 3″ of the Tall Man, and not within 1″ of any other unit.\n\nThe Rabble is placed immediately after the enemy unit blunders, but before they perform their order. You may only have 4 Rabble units at any time."
+      },
+      "Ability§Tired and Weary": {
+        "text": "The Old Guard arrives on the battlefield with SIX panic tokens."
+      },
+      "Ability§Tod Off!": {
+        "text": "Tod makes 3x the number of melee attacks when involved in a Toff Off!."
+      },
+      "Ability§Toff Off!": {
+        "text": "When a Toff you control is **Made Ready** within 18″ and line of sight of an enemy Toff, you may propose a Toff Off!\n\nA Toff Off! is a relatively honourable duel to the death, where only one Toff will be left standing. When a player is challenged to a Toff Off!, they MUST accept.\n\n* **Sabres For Tea:** To fight a Toff Off!, both Toffs make simultaneous melee attacks against each other until one Toff has perished. When one or both Toffs expire, the Toff Off! ends.  \n* If your Toff is still alive, proceed with your Toff’s Orders.  \n* If not, your Order ends.\n* **Nice Spot for a Picnic:** Players are encouraged to pick a suitably grandiose spot on the battlefield to host their toff off! Mark the Toff’s original positions and place them in the area ready for their duel. Once one or both Toffs have gone to nibble that great turnip in the sky (died), return the victor to their original position and proceed with their orders."
+      },
+      "Ability§Ululating Shrine": {
+        "text": "Every time this unit is Made Ready (see page 10), it may take up to 2 panic tokens from a friendly unit anywhere on the table and give them to another friendly or enemy unit within 18″.\n\nThese units do not need to be within line of sight."
+      },
+      "Ability§Unfortunate Wobble": {
+        "text": "All units in your Regiment must retreat directly towards the enemy unit instead of directly away."
+      },
+      "Ability§Unnerving Effigy": {
+        "text": "Every time your opponent rolls to see if a unit blunders, they must roll a number of dice equal to the strength of Tall Man’s Gaze. A roll of a 1 on any of the dice makes the unit blunder."
+      },
+      "Ability§Unquestionably Appalling": {
+        "text": "No unit may deploy or end its move within 1″ of The Swelling."
+      },
+      "Ability§Unstable Icon": {
+        "text": "Like all artillery the Regiments use, this unit is prone to failing catastrophically.\n* When rolling to hit as part of a shooting attack, this unit receives one panic token for each unmodified 1 rolled. Any 1s rolled when generating Grape Shot’s 3D6 attacks do not generate panic tokens, only the rolls to hit. Shooting attacks should be rolled all at once, not one at a time.\n* If this unit has 3 or more panic tokens before it makes a shooting attack, it is dangerously unstable. If any further natural 1s are rolled when rolling to hit, something has gone horribly wrong. Immediately remove the unit from the table as it detonates, obliterating the crew completely. The unit resolves its shooting attacks as normal, even if it explodes. Its crew, the barrel, and surrounding plant matter cease to exist, but their shot still speeds towards their opponent.\n* An unstable unit must have at least 3 panic tokens when it rolls its shooting attacks to have any risk of exploding."
+      },
+      "Ability§Uproot": {
+        "text": "When this unit is killed, at the start of the next round, place the unit within a piece of dangerous terrain, not within 1″ of any other unit."
+      },
+      "Ability§Uproot (swelling)": {
+        "aspects": {
+          "Label": "Uproot"
+        },
+        "text": "When this unit is killed, at the start of the next round, place the unit within a piece of dangerous terrain, not within 1″ of any other unit.\n\nRootlings may use Uproot to be placed within 3″ of The Swelling instead"
+      },
+      "Ability§Vanguard": {
+        "text": "After deployment, starting with the player with the Initiative, players take turns moving a unit with **Vanguard** up to its Movement Characteristic **(M)**.\n\nA deployed Snob does not move if their units use **Vanguard**. Vanguard happens after Preliminary Bombardment."
+      },
+      "Ability§Warty Charisma": {
+        "text": "Units ordered by Tod can never blunder."
+      },
+      "Ability§Well Fed": {
+        "text": "This unit does not receive a panic token after fighting in a melee."
+      },
+      "Ability§What Wonderful Hosts": {
+        "text": "Whenever you order a Follower unit with a Snob, before rolling to blunder, each player must pick a unit they control. That unit suffers a wound. These wounds cannot be saved by a vulnerability roll."
+      },
+      "Ability§Zealots": {
+        "text": "If a unit of Zealots has 2 or more panic tokens, increase their Attacks (A) by 1."
+      },
+      "Cult§Aunts Ascendant": {},
+      "Cult§Cult": {},
+      "Cult§Knights of Shellwood": {
+        "assets": {
+          "traits": [
+            "Ability§Snail's Pace"
+          ]
+        },
+        "rules": {
+          "applySlow": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "item",
+                    "Snob§Toff",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Slow and Steady"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "applySnailing": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "classification",
+                    "Snob",
+                    "traits"
+                  ],
+                  [
+                    "{roster}",
+                    "assets",
+                    "classification",
+                    "Snob",
+                    "assets",
+                    "classification",
+                    "Follower",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Hard-Boiled"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 99
+          }
+        }
+      },
+      "Cult§Lopers of the Maudlin Marsh": {
+        "rules": {
+          "allowStilt": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "classification",
+                    "Snob",
+                    "allowed",
+                    "items"
+                  ],
+                  [
+                    "{roster}",
+                    "assets",
+                    "classification",
+                    "Snob",
+                    "assets",
+                    "classification",
+                    "Follower",
+                    "allowed",
+                    "items"
+                  ]
+                ],
+                "value": "Token§Stilt Spotter"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "applyWobble": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "classification",
+                    "Snob",
+                    "traits"
+                  ],
+                  [
+                    "{roster}",
+                    "assets",
+                    "classification",
+                    "Snob",
+                    "assets",
+                    "classification",
+                    "Follower",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Unfortunate Wobble"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        }
+      },
+      "Cult§Saint Alamei’s Rocket Batteries": {
+        "rules": {
+          "applyRockets": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "classification",
+                    "Snob",
+                    "traits"
+                  ],
+                  [
+                    "{roster}",
+                    "assets",
+                    "classification",
+                    "Snob",
+                    "assets",
+                    "classification",
+                    "Follower",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Pocket Rockets"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "classification",
+                    "Snob",
+                    "traits"
+                  ],
+                  [
+                    "{roster}",
+                    "assets",
+                    "classification",
+                    "Snob",
+                    "assets",
+                    "classification",
+                    "Follower",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Firework Fanatics"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        }
+      },
+      "Cult§Stranglin’ Harry’s Wretched Recruits": {
+        "assets": {
+          "traits": [
+            "Ability§Duck, you Prick!"
+          ]
+        },
+        "rules": {
+          "applyHarry's": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "classification",
+                    "Snob",
+                    "traits"
+                  ],
+                  [
+                    "{roster}",
+                    "assets",
+                    "classification",
+                    "Snob",
+                    "assets",
+                    "classification",
+                    "Follower",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Harry’s Method"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        }
+      },
+      "Cult§The Brotherhood of Greed": {
+        "rules": {
+          "applyGluttony": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "classification",
+                    "Snob",
+                    "assets",
+                    "classification",
+                    "Follower",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Gluttony"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "applyGrubs": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "append": ")",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "classification",
+                    "Snob",
+                    "designation"
+                  ]
+                ],
+                "prepend": " (",
+                "value": "Grub"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "classification",
+                    "Snob",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Mutated"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "classification",
+                    "Snob",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§An Occasional Treat"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 99
+          }
+        }
+      },
+      "Cult§The Feast of Charybdis": {
+        "rules": {
+          "applyDig": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "classification",
+                    "Snob",
+                    "assets",
+                    "classification",
+                    "Follower",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Dig, you Maggots!"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "classification",
+                    "Snob",
+                    "assets",
+                    "classification",
+                    "Follower",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Rise from the Silt"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        }
+      },
+      "Cult§The Fungivorous Herd": {
+        "rules": {
+          "applyHogs": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "classification",
+                    [
+                      "Snob",
+                      "Follower"
+                    ],
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Hogs in Mud"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "applyScare": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "classification",
+                    "Snob",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Scare the Swine"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        }
+      },
+      "Cult§The Grand Bombard": {
+        "rules": {
+          "applyObservers": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "classification",
+                    "Snob",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Backward Observers"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "classification",
+                    "Snob",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Aristocratic Ammunition"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "applySpotters": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "classification",
+                    "Snob",
+                    "assets",
+                    "item",
+                    "Follower§Stump Gun",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Spotters"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        }
+      },
+      "Cult§The Leech Lovers": {
+        "assets": {
+          "traits": [
+            "Ability§Lovers at Court",
+            "Ability§Grotesques"
+          ]
+        },
+        "rules": {
+          "applyHosts": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "classification",
+                    "Snob",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§What Wonderful Hosts"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "applyLifeblood": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "classification",
+                    "Snob",
+                    "traits"
+                  ],
+                  [
+                    "{roster}",
+                    "assets",
+                    "classification",
+                    "Snob",
+                    "assets",
+                    "classification",
+                    "Follower",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Lifeblood"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "switchToff": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Snob§Toff",
+                    "item"
+                  ]
+                ],
+                "value": "Snob§The Leech Lovers"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 5
+          }
+        }
+      },
+      "Cult§The Procession of Woe": {
+        "rules": {
+          "applyClergy": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "classification",
+                    "Snob",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Clergy"
+              },
+              {
+                "actionType": "modify",
+                "append": ")",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "classification",
+                    "Snob",
+                    "designation"
+                  ]
+                ],
+                "prepend": " (",
+                "value": "Clergy"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "applyZealots": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "classification",
+                    "Snob",
+                    "assets",
+                    "classification",
+                    "Follower",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Zealots"
+              },
+              {
+                "actionType": "modify",
+                "append": ")",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "classification",
+                    "Snob",
+                    "assets",
+                    "classification",
+                    "Follower",
+                    "designation"
+                  ]
+                ],
+                "prepend": " (",
+                "value": "Zealot"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "switchToff": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Snob§Toff",
+                    "item"
+                  ]
+                ],
+                "value": "Snob§Rootshrine"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 5
+          }
+        }
+      },
+      "Cult§The Red Ribbon Society": {
+        "rules": {
+          "applyGardeners": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "item": "Token§Gardener",
+                  "quantity": 6
+                }
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        }
+      },
+      "Cult§The Slug’s Lament": {
+        "assets": {
+          "traits": [
+            "Ability§Bristling"
+          ]
+        },
+        "rules": {
+          "applyOldGuard": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits"
+                  ]
+                ],
+                "value": {
+                  "aspects": {
+                    "Label": "The Old Guard"
+                  },
+                  "assets": {
+                    "traits": [
+                      "Ability§Fearless",
+                      "Ability§Disgustingly Stubborn",
+                      "Ability§Grenadiers",
+                      "Ability§The Old Guard",
+                      "Ability§Tired and Weary"
+                    ]
+                  },
+                  "item": "Follower§Grogs"
+                }
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "applyToffRules": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "item",
+                    "Snob§Toff",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Late as Usual"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "item",
+                    "Snob§Toff",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Call the Old Guard"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "noBrutes": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "classification",
+                    "Snob",
+                    "disallowed",
+                    "items"
+                  ]
+                ],
+                "value": "Follower§Brutes"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        }
+      },
+      "Cult§The Temple of Swellings": {
+        "rules": {
+          "applyEverywhere": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "classification",
+                    "Snob",
+                    "traits"
+                  ],
+                  [
+                    "{roster}",
+                    "assets",
+                    "classification",
+                    "Snob",
+                    "assets",
+                    "classification",
+                    "Follower",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§It’s Everywhere!"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "applySwollen": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "classification",
+                    "Snob",
+                    "assets",
+                    "classification",
+                    "Follower",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§The Swollen One"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits"
+                  ]
+                ],
+                "value": "Token§The Swelling"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits"
+                  ]
+                ],
+                "value": "Token§Tendril"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "You must take at least one unit of Rootlings as Followers": {
+            "evals": [
+              {
+                "actionable": true,
+                "min": 1,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{roster}",
+                    "tally",
+                    "Rootlings (swelling)"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "error"
+          }
+        }
+      },
+      "Cult§Tod’s Folly": {
+        "assets": {
+          "traits": []
+        },
+        "rules": {
+          "applyFollies": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "classification",
+                    "Snob",
+                    "traits"
+                  ],
+                  [
+                    "{roster}",
+                    "assets",
+                    "classification",
+                    "Snob",
+                    "assets",
+                    "classification",
+                    "Follower",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Misplaced Confidence"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "classification",
+                    "Snob",
+                    "traits"
+                  ],
+                  [
+                    "{roster}",
+                    "assets",
+                    "classification",
+                    "Snob",
+                    "assets",
+                    "classification",
+                    "Follower",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Absolute Chaos"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "applyMinders": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "append": ")",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "item",
+                    "Snob§Toady",
+                    "designation"
+                  ]
+                ],
+                "prepend": " (",
+                "value": "Minder"
+              },
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "item",
+                    "Snob§Toady",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Minders"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "switchToff": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits",
+                    "item",
+                    "Snob§Toff",
+                    "item"
+                  ]
+                ],
+                "value": "Snob§Tod"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 5
+          }
+        }
+      },
+      "Cult§Uprising of the Louse": {
+        "rules": {
+          "applyMan": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "traits"
+                  ]
+                ],
+                "value": "Token§The Tall Man"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "applyProtect": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{roster}",
+                    "assets",
+                    "classification",
+                    "Snob",
+                    "traits"
+                  ],
+                  [
+                    "{roster}",
+                    "assets",
+                    "classification",
+                    "Snob",
+                    "assets",
+                    "classification",
+                    "Follower",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§The Tall Man Protects"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        }
+      },
+      "Equipment§Black Powder": {
+        "text": "Units equipped this way receive a powder smoke token every time they shoot.\n\nUnits with powder smoke tokens cannot shoot."
+      },
+      "Equipment§Close Combat": {
+        "rules": {
+          "applyRange": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "R",
+                    "value"
+                  ],
+                  [
+                    "{self}",
+                    "assets",
+                    "classification",
+                    "Model",
+                    "stats",
+                    "R",
+                    "value"
+                  ]
+                ],
+                "value": null
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "Units equipped this way reduce their Inaccuracy by 1 for all melee attacks.\n\nFor example, when using close combat weapons, a melee attack needing 6+ to hit instead needs a 5+.\n\nA unit equipped with close combat weapons MAY re-roll their charge distance dice. If a player chooses to re-roll their charge distance, both dice must be re- rolled and they must accept the new result."
+      },
+      "Equipment§Missile Weapons": {
+        "text": "Units equipped this way reduce the Vulnerability of their target by 2 when they shoot.\n\nFor example, a target’s save of 5+ will improve to a 3+ if shot at by missile weapons."
+      },
+      "Equipment§Moustaches": {},
+      "Equipment§Pistol & Sabre": {
+        "text": "Units equipped this way do not generate a powder smoke token when they shoot, and are not consid- ered to be equipped with close combat weapons."
+      },
+      "Follower§Bastards": {
+        "assets": {
+          "traits": [
+            "Ability§Bowel-Loosening Charge",
+            {
+              "item": "Model§Bastard",
+              "quantity": 3
+            }
+          ]
+        },
+        "keywords": {
+          "Keywords": [
+            "Cavalry",
+            "Core"
+          ]
+        }
+      },
+      "Follower§Brutes": {
+        "assets": {
+          "traits": [
+            "Ability§Fearless",
+            {
+              "item": "Model§Brute",
+              "quantity": 6
+            }
+          ]
+        },
+        "keywords": {
+          "Keywords": [
+            "Core",
+            "Infantry"
+          ]
+        }
+      },
+      "Follower§Chaff": {
+        "assets": {
+          "traits": [
+            "Ability§Sharpshooters",
+            "Ability§Vanguard",
+            "Ability§Skirmish",
+            {
+              "item": "Model§Chaff",
+              "quantity": 4
+            }
+          ]
+        },
+        "keywords": {
+          "Keywords": [
+            "Core",
+            "Infantry"
+          ]
+        }
+      },
+      "Follower§Fodder": {
+        "assets": {
+          "traits": [
+            "Ability§Safety in Numbers",
+            {
+              "item": "Model§Fodder",
+              "quantity": 12
+            }
+          ]
+        },
+        "keywords": {
+          "Keywords": [
+            "Core",
+            "Infantry"
+          ]
+        }
+      },
+      "Follower§Grogs": {
+        "assets": {
+          "traits": [
+            "Ability§Fearless",
+            "Ability§Disgustingly Stubborn",
+            "Ability§Grenadiers"
+          ]
+        },
+        "keywords": {
+          "Cult": [
+            "Slug"
+          ]
+        },
+        "stats": {
+          "Equipment": {
+            "dynamic": false,
+            "value": "Black Powder"
+          },
+          "maxQty": {
+            "value": 3
+          }
+        }
+      },
+      "Follower§Lopers": {
+        "assets": {
+          "traits": [
+            "Ability§Stride",
+            "Ability§Exposed",
+            {
+              "item": "Model§Loper",
+              "quantity": 6
+            }
+          ]
+        },
+        "disallowed": {
+          "items": [
+            "Token§Stilt Spotter"
+          ]
+        },
+        "keywords": {
+          "Cult": [
+            "Lopers"
+          ]
+        },
+        "stats": {
+          "Equipment": {
+            "dynamic": false,
+            "value": "Close Combat"
+          },
+          "maxQty": {
+            "value": 2
+          }
+        }
+      },
+      "Follower§Rabble": {
+        "assets": {
+          "traits": [
+            "Ability§Swarm ’Em!"
+          ]
+        },
+        "keywords": {
+          "Cult": [
+            "Uprising"
+          ]
+        },
+        "stats": {
+          "A": {
+            "statType": "term",
+            "value": "?"
+          },
+          "Base": {
+            "value": "20-30"
+          },
+          "Equipment": {
+            "dynamic": false,
+            "value": "Close Combat"
+          },
+          "I": {
+            "value": 7
+          },
+          "M": {
+            "value": 6
+          },
+          "maxQty": {
+            "value": 2
+          },
+          "V": {
+            "value": 7
+          },
+          "W": {
+            "value": 1
+          }
+        }
+      },
+      "Follower§Rootlings": {
+        "assets": {
+          "traits": [
+            "Ability§Uproot",
+            "Ability§Marsh Born",
+            {
+              "item": "Model§Rootling",
+              "quantity": 6
+            }
+          ]
+        },
+        "keywords": {
+          "Cult": [
+            "Harry"
+          ]
+        },
+        "stats": {
+          "Equipment": {
+            "dynamic": false,
+            "value": "Close Combat"
+          },
+          "maxQty": {
+            "value": 1
+          }
+        }
+      },
+      "Follower§Rootlings (swelling)": {
+        "aspects": {
+          "Label": "Rootlings"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Uproot (swelling)",
+            "Ability§Marsh Born",
+            {
+              "item": "Model§Rootling",
+              "quantity": 6
+            }
+          ]
+        },
+        "keywords": {
+          "Cult": [
+            "Swellings"
+          ]
+        },
+        "stats": {
+          "Equipment": {
+            "dynamic": false,
+            "value": "Close Combat"
+          }
+        }
+      },
+      "Follower§Scuttlers": {
+        "aspects": {
+          "Type": "game piece"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Offal Gorgers",
+            "Ability§Well Fed",
+            "Ability§Silt Born"
+          ]
+        },
+        "keywords": {
+          "Cult": [
+            "Feast"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 10
+          },
+          "Base": {
+            "value": "60-100"
+          },
+          "Equipment": {
+            "dynamic": false,
+            "value": "Close Combat"
+          },
+          "I": {
+            "value": 5
+          },
+          "M": {
+            "value": 10
+          },
+          "maxQty": {
+            "value": 2
+          },
+          "V": {
+            "value": 5
+          },
+          "W": {
+            "value": 5
+          }
+        }
+      },
+      "Follower§Snail Knight": {
+        "aspects": {
+          "Type": "game piece"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Hardshelled",
+            "Ability§Mucous Maneuver"
+          ]
+        },
+        "keywords": {
+          "Cult": [
+            "Knights"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 6
+          },
+          "Base": {
+            "value": "40-80"
+          },
+          "I": {
+            "value": 5
+          },
+          "M": {
+            "value": 0
+          },
+          "maxQty": {
+            "value": 2
+          },
+          "R": {
+            "value": 18
+          },
+          "V": {
+            "value": 3
+          },
+          "W": {
+            "value": 4
+          }
+        }
+      },
+      "Follower§St. Alamei’s Rocket Battery": {
+        "aspects": {
+          "Type": "game piece"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Pandemonium Rockets",
+            "Ability§Ricochet",
+            "Ability§Unstable Icon",
+            "Ability§Stubborn Fanatics",
+            "Ability§Preliminary Bombardment"
+          ]
+        },
+        "keywords": {
+          "Cult": [
+            "Alamei"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 3
+          },
+          "Base": {
+            "value": "60-80"
+          },
+          "Equipment": {
+            "dynamic": false,
+            "value": "Black Powder"
+          },
+          "I": {
+            "value": 6
+          },
+          "M": {
+            "value": 0
+          },
+          "maxQty": {
+            "value": 2
+          },
+          "R": {
+            "value": 60
+          },
+          "V": {
+            "value": 7
+          },
+          "W": {
+            "value": 3
+          }
+        }
+      },
+      "Follower§Stump Gun": {
+        "aspects": {
+          "Type": "game piece"
+        },
+        "assets": {
+          "traits": [
+            "Ability§Ammunition",
+            "Ability§Unstable Icon",
+            "Ability§Stubborn Fanatics",
+            "Ability§Preliminary Bombardment"
+          ]
+        },
+        "disallowed": {
+          "items": [
+            "Token§Stilt Spotter"
+          ]
+        },
+        "keywords": {
+          "Keywords": [
+            "Artillery",
+            "Core"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 3
+          },
+          "Equipment": {
+            "dynamic": false,
+            "value": "Black Powder"
+          },
+          "I": {
+            "value": 6
+          },
+          "M": {
+            "value": 0
+          },
+          "R": {
+            "statType": "term",
+            "value": "?"
+          },
+          "V": {
+            "value": 5
+          },
+          "W": {
+            "value": 3
+          }
+        }
+      },
+      "Follower§The Aunts’ Observation Balloon": {
+        "aspects": {
+          "Type": "game piece",
+          "Unique": true
+        },
+        "assets": {
+          "traits": [
+            "Ability§Shadow of the Balloon",
+            "Ability§Floating Through the Fog",
+            "Ability§Fly",
+            "Ability§Sharpshooters",
+            "Ability§Snarky Tourists"
+          ]
+        },
+        "keywords": {
+          "Cult": [
+            "Aunts"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 2
+          },
+          "Base": {
+            "value": "100-120"
+          },
+          "Equipment": {
+            "dynamic": false,
+            "value": "Black Powder"
+          },
+          "I": {
+            "value": 5
+          },
+          "M": {
+            "value": 24
+          },
+          "maxQty": {
+            "value": 1
+          },
+          "R": {
+            "value": 18
+          },
+          "V": {
+            "value": 5
+          },
+          "W": {
+            "value": 4
+          }
+        }
+      },
+      "Follower§The Grand Bombard": {
+        "aspects": {
+          "Type": "game piece",
+          "Unique": true
+        },
+        "assets": {
+          "traits": [
+            "Ability§Monstrous Bombardment",
+            "Ability§Unstable Icon",
+            "Ability§Stubborn Fanatics",
+            "Ability§Preliminary Bombardment",
+            "Ability§Spotters"
+          ]
+        },
+        "keywords": {
+          "Cult": [
+            "Bombard"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 6
+          },
+          "Base": {
+            "value": "80-120"
+          },
+          "Equipment": {
+            "dynamic": false,
+            "value": "Black Powder"
+          },
+          "I": {
+            "value": 6
+          },
+          "M": {
+            "value": 0
+          },
+          "maxQty": {
+            "value": 1
+          },
+          "V": {
+            "value": 5
+          },
+          "W": {
+            "value": 6
+          }
+        }
+      },
+      "Follower§The Herd": {
+        "aspects": {
+          "Unique": true
+        },
+        "assets": {
+          "traits": [
+            "Ability§The Herd Grows",
+            "Ability§Stampede",
+            "Ability§Confused Animals",
+            {
+              "item": "Model§Livestock",
+              "quantity": 4
+            }
+          ]
+        },
+        "keywords": {
+          "Cult": [
+            "Herd"
+          ]
+        },
+        "stats": {
+          "Equipment": {
+            "dynamic": false,
+            "value": "Close Combat"
+          },
+          "maxQty": {
+            "value": 1
+          }
+        }
+      },
+      "Follower§Whelps": {
+        "assets": {
+          "traits": [
+            "Ability§Dash",
+            {
+              "item": "Model§Whelp",
+              "quantity": 4
+            }
+          ]
+        },
+        "keywords": {
+          "Keywords": [
+            "Cavalry",
+            "Core"
+          ]
+        }
+      },
+      "Model§Bastard": {
+        "stats": {
+          "A": {
+            "value": 4
+          },
+          "Base": {
+            "value": "40-60"
+          },
+          "I": {
+            "value": 5
+          },
+          "M": {
+            "value": 12
+          },
+          "R": {
+            "value": 18
+          },
+          "V": {
+            "value": 5
+          },
+          "W": {
+            "value": 2
+          }
+        }
+      },
+      "Model§Brute": {
+        "stats": {
+          "A": {
+            "value": 2
+          },
+          "Base": {
+            "value": "20-30"
+          },
+          "I": {
+            "value": 5
+          },
+          "M": {
+            "value": 6
+          },
+          "R": {
+            "value": 18
+          },
+          "V": {
+            "value": 5
+          },
+          "W": {
+            "value": 1
+          }
+        }
+      },
+      "Model§Chaff": {
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "Base": {
+            "value": "20-30"
+          },
+          "I": {
+            "value": 5
+          },
+          "M": {
+            "value": 6
+          },
+          "R": {
+            "value": 18
+          },
+          "V": {
+            "value": 6
+          },
+          "W": {
+            "value": 1
+          }
+        }
+      },
+      "Model§Fodder": {
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "Base": {
+            "value": "20-30"
+          },
+          "I": {
+            "value": 6
+          },
+          "M": {
+            "value": 6
+          },
+          "R": {
+            "value": 18
+          },
+          "V": {
+            "value": 6
+          },
+          "W": {
+            "value": 1
+          }
+        }
+      },
+      "Model§Grog": {
+        "stats": {
+          "A": {
+            "value": 2
+          },
+          "Base": {
+            "value": "20-30"
+          },
+          "I": {
+            "value": 4
+          },
+          "M": {
+            "value": 6
+          },
+          "R": {
+            "value": 18
+          },
+          "V": {
+            "value": 5
+          },
+          "W": {
+            "value": 1
+          }
+        }
+      },
+      "Model§Livestock": {
+        "stats": {
+          "A": {
+            "value": 2
+          },
+          "Base": {
+            "value": "20-30"
+          },
+          "I": {
+            "value": 5
+          },
+          "M": {
+            "value": 6
+          },
+          "V": {
+            "value": 5
+          },
+          "W": {
+            "value": 1
+          }
+        }
+      },
+      "Model§Loper": {
+        "stats": {
+          "A": {
+            "value": 3
+          },
+          "Base": {
+            "value": "20-40"
+          },
+          "I": {
+            "value": 5
+          },
+          "M": {
+            "value": 12
+          },
+          "V": {
+            "value": 7
+          },
+          "W": {
+            "value": 2
+          }
+        }
+      },
+      "Model§Rabble": {},
+      "Model§Rootling": {
+        "stats": {
+          "A": {
+            "value": 2
+          },
+          "Base": {
+            "value": "20-30"
+          },
+          "I": {
+            "value": 7
+          },
+          "M": {
+            "value": 6
+          },
+          "V": {
+            "value": 7
+          },
+          "W": {
+            "value": 1
+          }
+        }
+      },
+      "Model§Whelp": {
+        "stats": {
+          "A": {
+            "value": 2
+          },
+          "Base": {
+            "value": "40-60"
+          },
+          "I": {
+            "value": 5
+          },
+          "M": {
+            "value": 12
+          },
+          "R": {
+            "value": 18
+          },
+          "V": {
+            "value": 6
+          },
+          "W": {
+            "value": 2
+          }
+        }
+      },
+      "Mutation§Appalling Stagnation": {
+        "text": "Enemy units attacking units with this mutation in melee increase their Inaccuracy (I) by 2."
+      },
+      "Mutation§Bulbous": {
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "V",
+                    "value"
+                  ]
+                ],
+                "value": -2
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "Reduce the Vulnerability (V) of this unit by 2.\n\nE.g. a toady with a (V) of 5+ would now have a (V) of 3+."
+      },
+      "Mutation§Crown of Toes": {
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Bowel-Loosening Charge"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "This unit gains Bowel-Loosening Charge."
+      },
+      "Mutation§Delicious Infestation": {
+        "text": "All enemy units must target this unit if possible when they charge, even if there are other closer units."
+      },
+      "Mutation§Root Sight": {
+        "text": "This unit always passes any dangerous terrain tests it has to make."
+      },
+      "Mutation§Shrivelled": {
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "M",
+                    "value"
+                  ]
+                ],
+                "value": 0
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "Reduce the Movement (M) of this unit to 0."
+      },
+      "Mutation§Sprouted": {
+        "text": "When the last model in this unit is removed for any reason, roll a D6. On a 5+, this model is not removed.\n\nAny wounds this model suffered are still counted towards finding winners and losers."
+      },
+      "Mutation§Toothlessness": {
+        "text": "Difficulty eating hard foods."
+      },
+      "Mutation§Trumpet-Snouted": {
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "C",
+                    "value"
+                  ]
+                ],
+                "value": 18
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "Increase the command range of the snob to 18″."
+      },
+      "Mutation§Tuberous Tendrils": {
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "modify",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "stats",
+                    "A",
+                    "value"
+                  ]
+                ],
+                "value": 2
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "Increase the Attacks (A) of this unit by 2."
+      },
+      "Mutation§Vegetable Bloom": {
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Skirmish"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "This unit gains Skirmish"
+      },
+      "Mutation§Wings": {
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Fly"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        },
+        "text": "This unit gains Fly."
+      },
+      "Roster§Roster": {
+        "aspects": {
+          "Label": "Regiment"
+        },
+        "assets": {
+          "traits": [
+            "Cult§Cult",
+            "Snob§Toff"
+          ]
+        },
+        "rules": {
+          "addToadies": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": [
+                  "{this}",
+                  "evals",
+                  "0",
+                  "result",
+                  "integer"
+                ],
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Snob§Toady"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "equation": {
+                  "operator": "T-O",
+                  "value": 1
+                },
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Snobs",
+                    "value"
+                  ]
+                ]
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 1
+          },
+          "cultFollowers": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "assets",
+                    "classification",
+                    "Snob",
+                    "constraints",
+                    "any"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "stats",
+                  "Cult",
+                  "processed",
+                  "rank",
+                  "current"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Cult",
+                    "value"
+                  ]
+                ],
+                "value": "-"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass"
+          },
+          "noCult": {
+            "actions": [
+              {
+                "actionType": "remove",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits"
+                  ]
+                ],
+                "value": "Cult§Cult"
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": false,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Cult",
+                    "value"
+                  ]
+                ],
+                "value": "-"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 0
+          },
+          "yesCult": {
+            "actions": [
+              {
+                "actionType": "set",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{self}",
+                    "traits",
+                    "classification",
+                    "Cult",
+                    "item"
+                  ]
+                ],
+                "value": [
+                  "{self}",
+                  "stats",
+                  "Cult",
+                  "processed",
+                  "term",
+                  "current"
+                ]
+              }
+            ],
+            "evals": [
+              {
+                "actionable": true,
+                "not": true,
+                "operator": "AND",
+                "paths": [
+                  [
+                    "{self}",
+                    "stats",
+                    "Cult",
+                    "value"
+                  ]
+                ],
+                "value": "-"
+              }
+            ],
+            "evaluate": "AND",
+            "failState": "pass",
+            "order": 0
+          }
+        },
+        "stats": {
+          "Cult": {
+            "dynamic": true,
+            "ranks": {
+              "-": {
+                "order": 0
+              },
+              "Harry": {
+                "format": "Stranglin’ Harry’s Wretched Recruits",
+                "order": 1,
+                "term": "Cult§Stranglin’ Harry’s Wretched Recruits"
+              },
+              "Slug": {
+                "format": "The Slug’s Lament",
+                "order": 2,
+                "term": "Cult§The Slug’s Lament"
+              },
+              "Tod": {
+                "format": "Tod’s Folly",
+                "order": 3,
+                "term": "Cult§Tod’s Folly"
+              },
+              "Herd": {
+                "format": "The Fungivorous Herd",
+                "order": 4,
+                "term": "Cult§The Fungivorous Herd"
+              },
+              "Bombard": {
+                "format": "The Grand Bombard",
+                "order": 5,
+                "term": "Cult§The Grand Bombard"
+              },
+              "Greed": {
+                "format": "The Brotherhood of Greed",
+                "order": 6,
+                "term": "Cult§The Brotherhood of Greed"
+              },
+              "Woe": {
+                "format": "The Procession of Woe",
+                "order": 7,
+                "term": "Cult§The Procession of Woe"
+              },
+              "Ribbon": {
+                "format": "The Red Ribbon Society",
+                "order": 8,
+                "term": "Cult§The Red Ribbon Society"
+              },
+              "Feast": {
+                "format": "The Feast of Charybdis",
+                "order": 9,
+                "term": "Cult§The Feast of Charybdis"
+              },
+              "Shellwood": {
+                "format": "Knights of Shellwood",
+                "order": 10,
+                "term": "Cult§Knights of Shellwood"
+              },
+              "Lopers": {
+                "format": "Lopers of the Maudlin Marsh",
+                "order": 11,
+                "term": "Cult§Lopers of the Maudlin Marsh"
+              },
+              "Aunts": {
+                "format": "Aunts Ascendant",
+                "order": 12,
+                "term": "Cult§Aunts Ascendant"
+              },
+              "Leech": {
+                "format": "The Leech Lovers",
+                "order": 13,
+                "term": "Cult§The Leech Lovers"
+              },
+              "Uprising": {
+                "format": "Uprising of the Louse",
+                "order": 14,
+                "term": "Cult§Uprising of the Louse"
+              },
+              "Alamei": {
+                "format": "Saint Alamei’s Rocket Batteries",
+                "order": 15,
+                "term": "Cult§Saint Alamei’s Rocket Batteries"
+              },
+              "Swellings": {
+                "format": "The Temple of Swellings",
+                "order": 16,
+                "term": "Cult§The Temple of Swellings"
+              }
+            },
+            "statOrder": 2,
+            "statType": "rank",
+            "value": "-",
+            "visibility": "normal"
+          },
+          "Snobs": {
+            "dynamic": true,
+            "increment": {
+              "value": 1
+            },
+            "min": 1,
+            "statOrder": 1,
+            "statType": "numeric",
+            "value": 3,
+            "visibility": "normal"
+          }
+        }
+      },
+      "Snob§Rootshrine": {
+        "keywords": {
+          "Cult": [
+            "Procession"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 3
+          },
+          "C": {
+            "value": 6
+          },
+          "Follower": {
+            "max": 2,
+            "min": 2
+          },
+          "I": {
+            "value": 6
+          },
+          "M": {
+            "value": 6
+          },
+          "R": {
+            "value": 6
+          },
+          "V": {
+            "value": 5
+          },
+          "W": {
+            "value": 4
+          }
+        }
+      },
+      "Snob§The Leech Lovers": {
+        "assets": {
+          "traits": [
+            "Ability§Lovers Kiss",
+            "Ability§Heady Romance"
+          ]
+        },
+        "keywords": {
+          "Cult": [
+            "Leech"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 6
+          },
+          "Base": {
+            "value": "40-60"
+          },
+          "C": {
+            "value": 6
+          },
+          "Follower": {
+            "max": 2,
+            "min": 2
+          },
+          "I": {
+            "value": 5
+          },
+          "M": {
+            "value": 6
+          },
+          "R": {
+            "value": 6
+          },
+          "V": {
+            "value": 6
+          },
+          "W": {
+            "value": 6
+          }
+        }
+      },
+      "Snob§Toady": {
+        "stats": {
+          "A": {
+            "value": 1
+          },
+          "C": {
+            "value": 3
+          },
+          "Follower": {
+            "max": 1,
+            "min": 1
+          },
+          "I": {
+            "value": 5
+          },
+          "M": {
+            "value": 6
+          },
+          "R": {
+            "value": 6
+          },
+          "V": {
+            "value": 5
+          },
+          "W": {
+            "value": 1
+          }
+        }
+      },
+      "Snob§Tod": {
+        "assets": {
+          "traits": [
+            "Ability§Warty Charisma",
+            "Ability§Son of Tod",
+            "Ability§Tod Off!"
+          ]
+        },
+        "keywords": {
+          "Cult": [
+            "Tod"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 3
+          },
+          "Base": {
+            "value": "20-40"
+          },
+          "C": {
+            "value": 6
+          },
+          "Follower": {
+            "max": 2,
+            "min": 2
+          },
+          "I": {
+            "value": 7
+          },
+          "M": {
+            "value": 6
+          },
+          "R": {
+            "value": 6
+          },
+          "V": {
+            "value": 7
+          },
+          "W": {
+            "value": 2
+          }
+        }
+      },
+      "Snob§Toff": {
+        "assets": {
+          "traits": [
+            "Ability§Toff Off!"
+          ]
+        },
+        "stats": {
+          "A": {
+            "value": 2
+          },
+          "C": {
+            "value": 6
+          },
+          "Follower": {
+            "max": 2,
+            "min": 2
+          },
+          "I": {
+            "value": 5
+          },
+          "M": {
+            "value": 6
+          },
+          "R": {
+            "value": 6
+          },
+          "V": {
+            "value": 5
+          },
+          "W": {
+            "value": 2
+          }
+        }
+      },
+      "Token§Gardener": {
+        "assets": {
+          "traits": [
+            "Ability§Plots",
+            "Ability§Allotment",
+            "Ability§Growing your Vegetables",
+            "Ability§Prizewinners",
+            "Ability§Destroying Plots"
+          ]
+        }
+      },
+      "Token§Stilt Spotter": {
+        "rules": {
+          "apply": {
+            "actions": [
+              {
+                "actionType": "add",
+                "iterations": 1,
+                "paths": [
+                  [
+                    "{parent}",
+                    "traits"
+                  ]
+                ],
+                "value": "Ability§Exposed"
+              }
+            ],
+            "evals": [],
+            "evaluate": "AND",
+            "failState": "pass"
+          }
+        }
+      },
+      "Token§Tendril": {},
+      "Token§The Swelling": {
+        "assets": {
+          "traits": [
+            "Ability§Unquestionably Appalling",
+            "Ability§Abnormal Growth",
+            "Ability§Tendrils",
+            "Ability§Grasping Horror"
+          ]
+        }
+      },
+      "Token§The Tall Man": {
+        "assets": {
+          "traits": [
+            "Ability§The Tall Man's Gaze",
+            "Ability§Unnerving Effigy",
+            "Ability§Thoughts of Rebellion"
+          ]
+        },
+        "text": "At the start of the game, after terrain and objectives have been set up, but before units have been deployed, place the Tall Man anywhere wholly within your deployment zone. It cannot not be placed within 1″ of an objective or another piece of terrain."
+      }
+    },
+    "gameModes": {},
+    "theme": {}
+  }
+}
